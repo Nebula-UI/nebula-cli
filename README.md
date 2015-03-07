@@ -1,4 +1,4 @@
-# Nebula-cli [![GitHub version](http://img.shields.io/badge/version-0.0.0-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli/releases)
+# Nebula-cli [![GitHub version](http://img.shields.io/badge/version-0.0.1-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli/releases)
 
 [![Dependency Status](https://gemnasium.com/hegdeashwin/nebula-cli.svg)](https://gemnasium.com/hegdeashwin/nebula-cli) [![Node.js version](http://img.shields.io/badge/Node.js-%3E%200.10-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli)  [![Built with Grunt](http://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)  [![License version](http://img.shields.io/badge/License-MIT-red.svg)](https://github.com/hegdeashwin/nebula-cli#license)
 
@@ -34,7 +34,7 @@ Options:
 
   	-h, --help     output usage information
     -V, --version  output the version number
-    -a, --about    About Nebula-Cli 0.0.0
+    -a, --about    About Nebula-Cli 0.0.1
 ```
 
 ## Author & Contributors
