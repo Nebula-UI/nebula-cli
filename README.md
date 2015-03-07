@@ -1,6 +1,6 @@
 # Nebula-cli [![GitHub version](http://img.shields.io/badge/version-0.0.0-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli/releases)
 
-[![Node.js version](http://img.shields.io/badge/Node.js-%3E%200.10-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli)  [![Built with Grunt](http://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)  [![License version](http://img.shields.io/badge/License-MIT-red.svg)](https://github.com/hegdeashwin/nebula-cli#license)
+[![Dependency Status](https://gemnasium.com/hegdeashwin/nebula-cli.svg)](https://gemnasium.com/hegdeashwin/nebula-cli) [![Node.js version](http://img.shields.io/badge/Node.js-%3E%200.10-brightgreen.svg)](https://github.com/hegdeashwin/nebula-cli)  [![Built with Grunt](http://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)  [![License version](http://img.shields.io/badge/License-MIT-red.svg)](https://github.com/hegdeashwin/nebula-cli#license)
 
 
 Nebula-cli is a command line generator for [Nebula](https://github.com/hegdeashwin/Nebula). This tool will help to generate a walking application skeleton for a typical Backbone web apps. You can use it to quickly bootstrap your Backbone web application projects.
