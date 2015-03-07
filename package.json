@@ -1,0 +1,53 @@
+{
+  "name": "nebula-cli",
+  "version": "0.0.0",
+  "author": "Ashwin Hegde",
+  "description": "nebula-cli is a command line generator for nebula. The tool will help to generate walking application skeleton for a typical Backbone web apps. You can use it to quickly bootstrap your Backbone web application projects.",
+  "homepage": "https://github.com/hegdeashwin/nebula-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hegdeashwin/nebula-cli.git"
+  },
+  "issues": {
+    "url": "https://github.com/hegdeashwin/nebula-cli/issues?state=open"
+  },
+  "milestones": {
+    "url": "https://github.com/hegdeashwin/nebula-cli/issues/milestones"
+  },
+  "releases": {
+    "url": "https://github.com/hegdeashwin/nebula-cli/releases"
+  },
+  "wiki": {
+    "url": "https://github.com/hegdeashwin/nebula-cli/wiki"
+  },
+  "dependencies": {
+    "commander": "~2.6.0",
+    "fs-extra": "~0.16.3",
+    "chalk": "~1.0.0"
+  },
+  "main": "bin/index",
+  "bin": {
+    "nebula": "./bin/index"
+  },
+  "keywords": [
+    "backbone",
+    "underscore",
+    "backbone-boilerplate",
+    "nebula",
+    "nebula-generator",
+    "nebula-boilerplate",
+    "generator",
+    "framework",
+    "cli",
+    "rest",
+    "boilerplate",
+    "skeleton"
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/hegdeashwin/nebula-cli/master/LICENSE"
+  }
+}
