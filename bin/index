@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+
+var os = require('os'),
+	fs = require('fs'),
+	path = require('path'),
+	readline = require('readline'),
+	chalk = require('chalk');
+
+var program = require('commander'),
+	fse = require('fs-extra');
+
+var product = require('../package.json');
+
+program
+	.version(product.version)
+	.usage('[options] [dir]')
+	.option('-a, --about', 'About Nebula-Cli ' + product.version)
+	.parse(process.argv);
+
+main();
+
+/**
+ * Check if the given directory `path` is empty.
+ *
+ * @param {String} path
+ * @param {Function} fn
+ */
+
+function isDirectoryEmpty(path, fn) {
+	fs.readdir(path, function(err, files) {
+		if (err && 'ENOENT' != err.code) {
+			throw err;
+		}
+		fn(!files || !files.length);
+	});
+};
+
+/**
+ * Get the confirmation for user input.
+ *
+ * @param {String} message
+ * @param {Function} callback
+ */
+
+function confirm(message, callback) {
+	var rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout
+	});
+
+	rl.question(message, function(input) {
+		rl.close();
+		callback(/^y|Y|yes|ok|true$/i.test(input))
+	});
+}
+
+function generateScaffolding(appName, scaffoldingPath) {
+	fse.copy(path.join(__dirname, 'templates/'), scaffoldingPath, function(err) {
+		if (err) {
+			return console.error(err);
+		}
+		console.log(chalk.green('\nStep 1: I\'m all done. Created "' + chalk.bold.cyan('%s') + '" successfully.\n'), scaffoldingPath);
+		console.log(chalk.green("Step 2 Change the current working directory to a \"%s\", execute command: " + chalk.bold.cyan('cd %s\n')), scaffoldingPath, scaffoldingPath);
+		console.log(chalk.green("Step 3 Install the required dependencies, execute command: " + chalk.bold.cyan('npm install')));
+	});
+};
+
+function main() {
+	var scaffoldingPath = program.args.shift() || '.';
+	var appName = path.basename(path.resolve(scaffoldingPath));
+
+	isDirectoryEmpty(scaffoldingPath, function(isEmpty) {
+		if (isEmpty) {
+			generateScaffolding(appName, scaffoldingPath);
+		} else {
+			console.log(chalk.yellow("\nWarning: Oh, scaffolding path is not empty!"));
+			confirm("Are you sure you want to continue? [Y/N] ", function(isYes) {
+				if (isYes) {
+					process.stdin.destroy();
+					generateScaffolding(appName, scaffoldingPath);
+				} else {
+					console.log(chalk.red("\nCan't figure this out! aborting...\n"));
+					process.exit(1);
+				}
+			});
+		}
+	});
+};
