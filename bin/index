@@ -17,6 +17,31 @@ program
 	.option('-a, --about', 'About Nebula-Cli ' + product.version)
 	.parse(process.argv);
 
+function about() {
+	console.info(chalk.cyan('\n\n\tAbout ' + chalk.bold.cyan('%s') + ' | Version: ' + chalk.bold.cyan('%s')), product.name, product.version);
+	console.info(chalk.yellow('\t-----------------------------------------------------------------------'));
+	console.info(chalk.cyan('\tProject Name : ' + chalk.bold.cyan('%s')), product.name);
+	console.info('');
+	console.info(chalk.cyan('\tDeveloped & maintained by author : ' + chalk.bold.cyan('%s')), product.author);
+	console.info('');
+	console.info(chalk.cyan('\tVisit the following link to know about ' + chalk.bold.cyan('%s')), product.name)
+	console.info(chalk.cyan('\tHome: ' + chalk.bold.cyan('%s')), product.homepage);
+	console.info('');
+	console.info(chalk.cyan('\tIf you find any bugs, enhancements or questions'));
+	console.info(chalk.cyan('\tplease feel free to info it on following link'));
+	console.info(chalk.cyan('\tIssues: ' + chalk.bold.cyan('%s')), product.issues.url);
+	console.info('');
+	console.info(chalk.cyan('\tThe MIT License (MIT), Copyright (c) 2015 Ashwin Hegde'));
+	console.info(chalk.cyan('\t' + chalk.bold.cyan('%s')), product.licenses.url);
+	console.info('\n');
+
+	process.exit(1);
+}
+
+if (program.about) {
+	about();
+}
+
 main();
 
 /**
