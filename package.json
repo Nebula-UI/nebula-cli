@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "commander": "~2.7.0",
-    "fs-extra": "~0.16.3",
+    "fs-extra": "~0.18.0",
     "chalk": "~1.0.0"
   },
   "main": "bin/index",
