@@ -1,6 +1,6 @@
 {
   "name": "nebula-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Ashwin Hegde",
   "description": "nebula-cli is a command line generator for nebula. The tool will help to generate walking application skeleton for a typical Backbone web apps. You can use it to quickly bootstrap your Backbone web application projects.",
   "homepage": "https://github.com/hegdeashwin/nebula-cli",
