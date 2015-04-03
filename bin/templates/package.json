@@ -1,29 +1,8 @@
 {
-  "name": "Nebula",
-  "subdomain": "hegdeashwin-Nebula",
-  "version": "0.0.5",
-  "author": "Ashwin Hegde",
-  "description": "Nebula is an open source walking application skeleton for a typical Backbone web apps. You can use it to quickly bootstrap your Backbone web application projects.",
-  "contributors": [{
-    "name": "Ashwin Hegde",
-    "email": "ashwin.hegde3@gmail.com"
-  }],
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/hegdeashwin/Nebula"
-  },
-  "issues": {
-    "url": "http://github.com/hegdeashwin/Nebula/issues?state=open"
-  },
-  "milestones": {
-    "url": "http://github.com/hegdeashwin/Nebula/issues/milestones"
-  },
-  "releases": {
-    "url": "http://github.com/hegdeashwin/Nebula/releases"
-  },
-  "wiki": {
-    "url": "http://github.com/hegdeashwin/Nebula/wiki"
-  },
+  "name": "",
+  "version": "0.0.0",
+  "author": "",
+  "description": "",
   "dependencies": {
     "express": "~4.12.0",
     "static-favicon": "~1.0.0",
@@ -49,29 +28,14 @@
     "time-grunt": "~1.1.0",
     "grunt-jsonlint": "~1.0.4",
     "grunt-banner": "~0.3.1"
-  },
-  "keywords": [
-    "backbone",
-    "framework",
-    "web",
-    "rest",
-    "restful",
-    "node",
-    "express",
-    "architecture"
-  ],
+  },  
   "engines": {
     "node": ">=0.10"
   },
   "scripts": {
-    "test": "grunt --verbose",
-    "start": "node server.js"
+    "test": "grunt --verbose"
   },
   "main": {
     "start": "node server.js"
-  },
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://raw.github.com/hegdeashwin/Nebula/master/LICENSE"
-  }]
+  }
 }

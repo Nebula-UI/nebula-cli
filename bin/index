@@ -79,14 +79,71 @@ function confirm(message, callback) {
 	});
 }
 
+function mergeObj() {
+	var obj = {},
+		i = 0,
+		il = arguments.length,
+		key;
+	for (; i < il; i++) {
+		for (key in arguments[i]) {
+			if (arguments[i].hasOwnProperty(key)) {
+				obj[key] = arguments[i][key];
+			}
+		}
+	}
+	return obj;
+};
+
+function updateProjectInfo(scaffoldingPath, fn) {
+	fse.readJson(scaffoldingPath + '/package.json', function(err, packageObj) {
+		if (err) {
+			return console.error(err);
+		}
+		var newPackageObj = mergeObj(packageObj, {
+			name: scaffoldingPath
+		});
+		fse.writeJson(scaffoldingPath + '/package.json', {
+			name: newPackageObj
+		}, function(err) {
+			if (err) {
+				console.error(err);
+			}
+		});
+	});
+	fse.readJson(scaffoldingPath + '/bower.json', function(err, bowerObj) {
+		if (err) {
+			return console.error(err);
+		}
+		var newBowerObj = mergeObj(bowerObj, {
+			name: scaffoldingPath
+		});
+		fse.writeJson(scaffoldingPath + '/bower.json', {
+			name: newBowerObj
+		}, function(err) {
+			if (err) {
+				console.error(err);
+			}
+		});
+	});
+	fse.outputFile(scaffoldingPath + '/README.md', '# ' + scaffoldingPath, function(err) {
+		if (err) {
+			return console.error(err);
+		}
+	});
+	fn();
+};
+
 function generateScaffolding(appName, scaffoldingPath) {
 	fse.copy(path.join(__dirname, 'templates/'), scaffoldingPath, function(err) {
 		if (err) {
 			return console.error(err);
 		}
-		console.log(chalk.green('\nStep 1: I\'m all done. Created "' + chalk.bold.cyan('%s') + '" successfully.\n'), scaffoldingPath);
-		console.log(chalk.green("Step 2 Change the current working directory to a \"%s\", execute command: " + chalk.bold.cyan('cd %s\n')), scaffoldingPath, scaffoldingPath);
-		console.log(chalk.green("Step 3 Install the required dependencies, execute command: " + chalk.bold.cyan('npm install')));
+		
+		updateProjectInfo(scaffoldingPath, function() {
+			console.log(chalk.green('\nStep 1: I\'m all done. Created "' + chalk.bold.cyan('%s') + '" successfully.\n'), scaffoldingPath);
+			console.log(chalk.green("Step 2 Change the current working directory to a \"%s\", execute command: " + chalk.bold.cyan('cd %s\n')), scaffoldingPath, scaffoldingPath);
+			console.log(chalk.green("Step 3 Install the required dependencies, execute command: " + chalk.bold.cyan('npm install')));
+		});
 	});
 };
 
