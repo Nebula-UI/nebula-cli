@@ -94,17 +94,15 @@ function mergeObj() {
 	return obj;
 };
 
-function updateProjectInfo(scaffoldingPath, fn) {
+function updateProjectInfo(appName, scaffoldingPath, fn) {
 	fse.readJson(scaffoldingPath + '/package.json', function(err, packageObj) {
 		if (err) {
 			return console.error(err);
 		}
 		var newPackageObj = mergeObj(packageObj, {
-			name: scaffoldingPath
+			name: appName
 		});
-		fse.writeJson(scaffoldingPath + '/package.json', {
-			name: newPackageObj
-		}, function(err) {
+		fse.writeJson(scaffoldingPath + '/package.json', newPackageObj, function(err) {
 			if (err) {
 				console.error(err);
 			}
@@ -115,11 +113,9 @@ function updateProjectInfo(scaffoldingPath, fn) {
 			return console.error(err);
 		}
 		var newBowerObj = mergeObj(bowerObj, {
-			name: scaffoldingPath
+			name: appName
 		});
-		fse.writeJson(scaffoldingPath + '/bower.json', {
-			name: newBowerObj
-		}, function(err) {
+		fse.writeJson(scaffoldingPath + '/bower.json', newBowerObj, function(err) {
 			if (err) {
 				console.error(err);
 			}
@@ -139,8 +135,8 @@ function generateScaffolding(appName, scaffoldingPath) {
 			return console.error(err);
 		}
 		
-		updateProjectInfo(scaffoldingPath, function() {
-			console.log(chalk.green('\nStep 1: I\'m all done. Created "' + chalk.bold.cyan('%s') + '" successfully.\n'), scaffoldingPath);
+		updateProjectInfo(appName, scaffoldingPath, function() {
+			console.log(chalk.green('\nStep 1: I\'m all done. Created "' + chalk.bold.cyan('%s') + '" successfully.\n'), appName);
 			console.log(chalk.green("Step 2 Change the current working directory to a \"%s\", execute command: " + chalk.bold.cyan('cd %s\n')), scaffoldingPath, scaffoldingPath);
 			console.log(chalk.green("Step 3 Install the required dependencies, execute command: " + chalk.bold.cyan('npm install')));
 		});
